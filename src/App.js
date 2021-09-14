@@ -19,7 +19,7 @@ function App() {
               <Route exact path='/'>
                 <ForecastContainer />
               </Route>
-              <Route path='/home'>
+              <Route path={['/home', '/weather-app']}>
                 <ForecastContainer />
               </Route>
               <Route path='/forecast'>
