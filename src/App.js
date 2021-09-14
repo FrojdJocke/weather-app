@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ForecastContainer from './containers/forecast/ForecastContainer';
+import Header from './containers/Header';
+import Navigation from './containers/Navigation';
+import NotFound from './containers/NotFound';
+import WeatherContext from './context/weatherContext';
+import useWeather from './hooks/useWeather';
 
 function App() {
+  const weather = useWeather();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Navigation />
+        <div className='container'>
+          <WeatherContext.Provider value={weather}>
+            <Header />
+            <Switch>
+              <Route exact path='/'>
+                <ForecastContainer />
+              </Route>
+              <Route path='/forecast'>
+                <ForecastContainer showWeek={true} />
+              </Route>
+              <NotFound />
+            </Switch>
+          </WeatherContext.Provider>
+        </div>
+      </Router>
     </div>
   );
 }
