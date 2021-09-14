@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 const Navigation = () => {
   const history = useHistory();
   const onClick = () => {
-    history.push('/');
+    history.push('/weather-app');
   };
   return (
     <nav className='navbar navbar-dark bg-dark'>
