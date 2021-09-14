@@ -11,7 +11,7 @@ const Navigation = () => {
         <div className='navbar-brand cursor-pointer' onClick={onClick}>
           JMHI
         </div>
-        <div className='mx-auto text-muted'>
+        <div className='mx-auto text-muted d-none d-md-block'>
           Jockes meteorological and hydrological institute
         </div>
       </div>
