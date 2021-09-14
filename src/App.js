@@ -19,6 +19,9 @@ function App() {
               <Route exact path='/'>
                 <ForecastContainer />
               </Route>
+              <Route path='/home'>
+                <ForecastContainer />
+              </Route>
               <Route path='/forecast'>
                 <ForecastContainer showWeek={true} />
               </Route>
